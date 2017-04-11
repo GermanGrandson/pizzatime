@@ -1,24 +1,11 @@
-# README
+# Pizza Time!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Looking for yelp reviews for a pizza shop in NYC? Type in the name of a pizza restaurant and the number of reviews you'd like to see and enjoy!
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby/Rails
+* Javascript
+* Mechanize
+* Google Places API
+* Google Maps API
+* Google Geocoding API
+* Geocoder
