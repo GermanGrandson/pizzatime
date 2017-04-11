@@ -1,0 +1,12 @@
+.container
+  .title Pizza Time!
+
+  = render 'searchform'
+
+  .nearby-shops
+    .shop-names Pizza Near By
+    .pizza-shops
+      .shop
+        - @shops.each do |pizza_shop|
+          .name
+            = pizza_shop

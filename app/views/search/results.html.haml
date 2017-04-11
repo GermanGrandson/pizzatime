@@ -1,0 +1,50 @@
+.search-container
+
+  = link_to root_path do
+    .home Pizza Time!
+
+  = render 'searchform'
+
+  .pizza-shop
+    .shop-info
+      .shop-name= @shop
+      .address= @address
+      .phone= @phone
+      .open= @time ? "Open Today: #{@time}" : "Closed"
+    #map
+
+  .reviews-section
+    - @scrape[0..@limit].each do |shop_hash|
+      .reviews
+        .shop-review
+          .stars{id: shop_hash[:rating].to_i.humanize}
+            - shop_hash[:rating].to_i.times do
+              %i.fa.fa-star
+          .name= shop_hash[:name]
+          .picture= image_tag(shop_hash[:pic])
+        .review-data
+          .date= shop_hash[:date]
+          .review_text= shop_hash[:text]
+
+%script{:async => "async", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['google_key']}&callback=initMap"}
+
+:javascript
+  var map;
+  function initMap() {
+    var myLatLng = {lat: #{@location.first}, lng: #{@location.last}};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: myLatLng,
+      scrollwheel: false,
+      draggable: true
+    });
+
+    google.maps.event.addListener(map, 'click', function(event){
+            this.setOptions({scrollwheel:true});
+          });
+
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map
+    });
+  }

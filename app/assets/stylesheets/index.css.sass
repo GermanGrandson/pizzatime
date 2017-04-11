@@ -1,0 +1,108 @@
+body
+  background-image: asset-url('seigaiha.png')
+
+.container
+  padding: 20px 100px 20px 100px
+  font-family: 'avenir-light'
+
+  .title
+    font-size: 160px
+    text-align: center
+    font-family: 'Baloo Chettan'
+    color: #e20b0b
+
+
+  .search
+    font-size: 0
+    width: 75%
+    height: 100px
+    margin: 0 auto
+
+    .input-box
+
+      .text-box, .select-box
+        display: inline-block
+        vertical-align: top
+
+      .text-box
+        width: 90%
+        margin-right: -79px
+        border: none
+
+        input
+          width: 100%
+          padding-left: 10px
+          height: 80px
+          font-size: 26px
+          color: #fff
+          background-color: #e20b0b
+          font-family: 'avenir-light'
+          border: solid 1px #e20b0b
+          border-radius: 10px
+
+          &::-webkit-input-placeholder
+            color: #fff
+            letter-spacing: 2px
+            font-size: 20px
+
+      .select-box
+        select
+          font-size: 26px
+          width: 160%
+          height: 84px
+          background-color: #e20b0b
+          color: #fff
+          border: none
+
+      .pizza-submit
+        margin-left: 42px
+        margin-top: 20px
+        width: 7%
+        height: 60px
+        background: none
+        background-image: asset-url('pepperoni-pizza-slice.png')
+        background-repeat: no-repeat
+        background-size: contain
+        cursor: pointer
+        color: transparent
+        border: none
+        transition: 300ms
+
+        &:hover
+          transition: 300ms
+          width: 6%
+
+  .nearby-shops
+    margin-top: 40px
+
+    .shop-names
+      text-align: center
+      font-family: 'Baloo Chettan'
+      font-size: 40px
+      color: #e20b0b
+
+    .pizza-shops
+      font-size: 0
+      width: 75%
+      margin: 0 auto
+      font-family: 'avenir-light'
+      color: #fff
+
+      .shop
+        border-radius: 10px
+        margin: 0 auto
+        width: 70%
+
+        .name
+          background-color: #e20b0b
+          margin: 10px
+          font-size: 28px
+          text-align: center
+          border-radius: 3px
+          border: solid 1px #e20b0b
+          transition: 300ms
+
+          &:hover
+            background-color: #fff
+            color: #e20b0b
+            transition: 300ms

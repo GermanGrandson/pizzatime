@@ -1,0 +1,8 @@
+.search
+  .input-box
+    = simple_form_for(:pizza, url:results_path, method: 'get') do |f|
+      .text-box
+        = f.input :shop, label: false, class: 'pizzatime', placeholder: "Enter a pizza shop and select a number of reviews to see!"
+      .select-box
+        = f.input :limit, collection: 1..10, prompt: '#', label: false, placeholder: '#'
+      = f.submit :submit, label: false, class:'pizza-submit'
