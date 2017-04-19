@@ -1,6 +1,9 @@
 .container
   .title Pizza Time!
 
+  - if flash[:notice]
+    #notice= notice
+
   = render 'searchform'
 
   .nearby-shops
