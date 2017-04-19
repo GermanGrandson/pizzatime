@@ -6,10 +6,10 @@ class Scrape
   # restaurant link and scrape its data. Data gets pushed into array of hashes.
   def scrape_shop(pizza_shop, limit)
     mechanize = Mechanize.new
-    # sleep(2) #Used to avoid timeout issues with Mechanize
+    # sleep(2)
     begin
       page = mechanize.get("https://www.yelp.com/search?find_desc=#{pizza_shop}+pizza&find_loc=New+York,+NY")
-
+      sleep(1) #Used to avoid timeout issues with Mechanize
       if page.root.css('.search-header-title-container > h1').text.strip.include? "No Results"
         false
       else
@@ -17,6 +17,7 @@ class Scrape
         link = link.attributes['href'].value
 
         review_page = mechanize.get("http://yelp.com#{link}?sort_by=date_desc")
+        sleep(1) #Used to avoid timeout issues with Mechanize
         yelp_reviews = review_page.root.css('.review')
         reviews_array = []
 
