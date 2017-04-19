@@ -3,28 +3,30 @@
   = link_to root_path do
     .home Pizza Time!
 
+  #notice= notice
+
   = render 'searchform'
 
   .pizza-shop
     .shop-info
-      .shop-name= @shop
-      .address= @address
-      .phone= @phone
-      .open= @time ? "Open Today: #{@time}" : "Closed"
+      .shop-name= @scrape.first.name
+      .address= @scrape.first.address
+      .phone= @scrape.first.phone
+      .open= @scrape.first.time ? "Open Today: #{@scrape.first.time}" : "Closed"
     #map
 
   .reviews-section
-    - @scrape[0..@limit].each do |shop_hash|
+    - @scrape.last.each do |review|
       .reviews
         .shop-review
-          .stars{id: shop_hash[:rating].to_i.humanize}
-            - shop_hash[:rating].to_i.times do
+          .stars{id: review.rating.to_i.humanize}
+            - review.rating.to_i.times do
               %i.fa.fa-star
-          .name= shop_hash[:name]
-          .picture= image_tag(shop_hash[:pic])
+          .name= review.username
+          .picture= image_tag(review.pic)
         .review-data
-          .date= shop_hash[:date]
-          .review_text= shop_hash[:text]
+          .date= review.date
+          .review_text= review.text
 
 %script{:async => "async", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyBITsYDCU8mfLW9exGEBrU6vy5xTNyV264&callback=initMap"}
 
